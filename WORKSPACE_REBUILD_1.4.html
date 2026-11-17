@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VortexEdit Pro — Workspace Rebuild 1.4</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b0d12;color:#e8ecf5;font:14px Inter,"Segoe UI",sans-serif}
+header{padding:24px 30px;border-bottom:1px solid #293142;background:#101520;display:flex;gap:18px;align-items:center}
+h1{font-size:20px;margin:0}header small{color:#929bad}main{max-width:1400px;margin:auto;padding:26px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+button{background:#202737;color:#e8ecf5;border:1px solid #39445a;border-radius:9px;padding:10px 16px;font-weight:700;cursor:pointer}
+button.active{background:#302a50;border-color:#7058d8}
+.panel{display:none;background:#151923;border:1px solid #293142;border-radius:14px;padding:20px}
+.panel.active{display:block}.cols{display:grid;grid-template-columns:230px 1fr 270px;gap:12px;min-height:410px}
+.pane{border:1px solid #303b50;background:#111722;border-radius:10px;padding:14px}
+.preview{display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#20283a,#0d1119);min-height:410px}
+.monitor{height:260px;aspect-ratio:16/9;border:1px solid #49566e;border-radius:8px;background:linear-gradient(145deg,#1d2635,#0c1119);display:grid;place-items:center;color:#929bad}
+.timeline{margin-top:14px;padding:16px;border:1px solid #303b50;background:#111722;border-radius:10px}
+.track{height:34px;border-radius:6px;background:#1c2432;margin:8px 0;position:relative}.clip{position:absolute;left:4%;width:26%;top:4px;bottom:4px;border-radius:5px;background:#6955c7}
+.gold{background:#f4c96b;color:#17131f}.blue{background:#397fbf}.purple{background:#7058d8}
+h2{margin:0 0 12px;font-size:16px}p{color:#aab3c4;line-height:1.6}.tag{display:inline-block;color:#c9c0ff;background:#302a50;padding:4px 9px;border-radius:20px;font-size:11px}
+.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:32px}
+.refs figure{margin:0;background:#151923;border:1px solid #293142;border-radius:12px;padding:12px}
+.refs img{width:100%;height:auto;border-radius:8px;border:1px solid #303b50}.refs figcaption{color:#929bad;margin-top:8px}
+ul{padding-left:20px;color:#c5ccda;line-height:1.8}
+@media(max-width:900px){.cols{grid-template-columns:1fr}.refs{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header><div><h1>VortexEdit Pro — Workspace Rebuild 1.4</h1><small>Three selectable desktop editing workspaces · source references retained</small></div><span style="margin-left:auto" class="tag">DESIGN REVIEW</span></header>
+<main>
+<p>This page documents the three workspace profiles being implemented in the PySide6 application. The supplied screenshots remain the baseline audit rather than being treated as a final target.</p>
+<div class="tabs">
+<button class="active" data-target="premiere">Premiere-style</button>
+<button data-target="capcut">CapCut-style</button>
+<button data-target="vortex">Vortex classic</button>
+</div>
+<section id="premiere" class="panel active">
+<h2>Premiere-style · Professional NLE</h2><p>Project and media bins on the left, a dominant Program Monitor in the center, editing controls on the right, and a resizable multitrack timeline below.</p>
+<div class="cols"><div class="pane"><b>Project / Media</b><p>Search, bins, thumbnails, metadata and import.</p><div class="track"></div><div class="track"></div></div><div class="pane preview"><span class="tag blue">PROGRAM MONITOR</span><div class="monitor">Preview / playback surface</div><p>Transport · timecode · zoom · fit</p></div><div class="pane"><b>Effect Controls</b><p>Video · Audio · Motion · Opacity · Keyframes</p><div class="track"></div><div class="track"></div></div></div>
+<div class="timeline"><b>Timeline / Sequence</b><div class="track"><div class="clip"></div></div><div class="track"><div class="clip" style="background:#367d9a;left:16%;width:20%"></div></div></div>
+</section>
+<section id="capcut" class="panel">
+<h2>CapCut-style · Creator-first workflow</h2><p>Fast tool discovery, larger touch-friendly controls, prominent media actions, simplified contextual properties and a creator-focused timeline.</p>
+<div class="cols"><div class="pane"><b>Tool rail + Media</b><p>Media · Audio · Text · Stickers · Effects · Captions</p><button class="active">Import media</button><div class="track"></div><div class="track"></div></div><div class="pane preview"><span class="tag purple">CANVAS</span><div class="monitor" style="aspect-ratio:9/16;height:270px">9:16 / 16:9 / 1:1</div><p>Quick preview controls and social aspect presets</p></div><div class="pane"><b>Smart Properties</b><p>Quick adjust · Animation · Speed · Background · AI tools</p><div class="track"></div><div class="track"></div></div></div>
+<div class="timeline"><b>Creator Timeline</b><div class="track"><div class="clip" style="background:#7058d8;width:32%"></div></div><div class="track"><div class="clip" style="background:#8d79f6;left:8%;width:18%"></div></div></div>
+</section>
+<section id="vortex" class="panel">
+<h2>Vortex classic · Original supplied layout</h2><p>Preserves the requested Vortex identity and the spatial arrangement in the supplied screenshots: properties on the left, preview in the middle, media drawer and tool rail at the right.</p>
+<div class="cols"><div class="pane"><b>Inspector</b><p>Selection-aware controls, grouped values, keyframes and clear empty states.</p><div class="track"></div><div class="track"></div></div><div class="pane preview"><span class="tag">VORTEX PLAYER</span><div class="monitor">Preview / playback surface</div><p>Aspect ratio · playback · timecode</p></div><div class="pane"><b>Media / Tools</b><p>Import, library, project items and tool categories.</p><div class="track"></div><div class="track"></div></div></div>
+<div class="timeline"><b>Vortex Timeline</b><div class="track"><div class="clip" style="background:#7058d8"></div></div><div class="track"><div class="clip" style="background:#d6a64a;left:10%;width:15%"></div></div></div>
+</section>
+<section class="refs">
+<figure><img src="5.png" alt="User supplied VortexEdit editor screenshot"><figcaption>Supplied reference 5.png — editor shell and media panel layout.</figcaption></figure>
+<figure><img src="6.png" alt="User supplied VortexEdit settings screenshot"><figcaption>Supplied reference 6.png — settings panel layout and visibility problems.</figcaption></figure>
+</section>
+<h2 style="margin-top:30px">Audit points carried into implementation</h2>
+<ul>
+<li>Remove oversized empty preview proportions; make panel sizes adjustable and context-sensitive.</li>
+<li>Keep controls readable, grouped and aligned; eliminate low-contrast settings fields.</li>
+<li>Make the timeline height adjustable and preserve its LTR time axis in Arabic mode.</li>
+<li>Use the same functional editing engine for all three visual workspaces.</li>
+<li>Maintain project compatibility and keep workspace preferences outside project files.</li>
+</ul>
+</main>
+<script>
+document.querySelectorAll(".tabs button").forEach(button=>button.addEventListener("click",()=>{
+ document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("active",x===button));
+ document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id===button.dataset.target));
+}));
+</script>
+</body></html>
